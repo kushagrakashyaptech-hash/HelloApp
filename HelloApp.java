@@ -2,26 +2,15 @@ public class HelloApp {
 
     public static void main(String[] args) {
 
-        // Case 1: No arguments
+        // Default message if no arguments
         if (args.length == 0) {
             System.out.println("Hello, World!");
             return;
         }
 
-        // Case 2: With arguments (append delimiter every time)
-        StringBuilder nameBuilder = new StringBuilder();
+        // Use String.join() to concatenate names
+        String names = String.join(", ", args);
 
-        for (String name : args) {
-            nameBuilder.append(name).append(", ");
-        }
-
-        // Remove trailing ", "
-        if (nameBuilder.length() > 0) {
-            nameBuilder = new StringBuilder(
-                nameBuilder.substring(0, nameBuilder.length() - 2)
-            );
-        }
-
-        System.out.println("Hello, " + nameBuilder + "!");
+        System.out.println("Hello, " + names + "!");
     }
 }
