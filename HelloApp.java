@@ -1,18 +1,27 @@
 public class HelloApp {
+
     public static void main(String[] args) {
+
+        // Case 1: No arguments
         if (args.length == 0) {
             System.out.println("Hello, World!");
-        } else {
-            StringBuilder names = new StringBuilder();
-
-            for (int i = 0; i < args.length; i++) {
-                names.append(args[i]);
-                if (i < args.length - 1) {
-                    names.append(", ");
-                }
-            }
-
-            System.out.println("Hello, " + names + "!");
+            return;
         }
+
+        // Case 2: With arguments (append delimiter every time)
+        StringBuilder nameBuilder = new StringBuilder();
+
+        for (String name : args) {
+            nameBuilder.append(name).append(", ");
+        }
+
+        // Remove trailing ", "
+        if (nameBuilder.length() > 0) {
+            nameBuilder = new StringBuilder(
+                nameBuilder.substring(0, nameBuilder.length() - 2)
+            );
+        }
+
+        System.out.println("Hello, " + nameBuilder + "!");
     }
 }
