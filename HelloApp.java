@@ -1,22 +1,18 @@
 public class HelloApp {
     public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
+        } else {
+            StringBuilder names = new StringBuilder();
 
-        String message = "";
-
-        if (args.length > 0) {
-            // loop through all names
             for (int i = 0; i < args.length; i++) {
-                message += args[i];
-
-                // add comma between names
+                names.append(args[i]);
                 if (i < args.length - 1) {
-                    message += ", ";
+                    names.append(", ");
                 }
             }
-        } else {
-            message = "World";
-        }
 
-        System.out.println("Hello, " + message + "!");
+            System.out.println("Hello, " + names + "!");
+        }
     }
 }
